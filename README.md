@@ -9,7 +9,7 @@
 Run the command below in the document directory.
 
 ```bash
-docker run --rm -v "$(pwd):/workspace" -it -p 4000:4000 kaba-gitbook serve
+docker run --rm -v "$(pwd):/workspace" -it -p 4000:4000 ryotan/kaba-gitbook serve
 ```
 
 ### Build HTML
@@ -17,7 +17,7 @@ docker run --rm -v "$(pwd):/workspace" -it -p 4000:4000 kaba-gitbook serve
 Run the command below in the document directory.
 
 ```bash
-docker run --rm -v "$(pwd):/workspace" kaba-gitbook "$1"
+docker run --rm -v "$(pwd):/workspace" ryotan/kaba-gitbook "$1"
 ```
 
 ### Wrapper script
@@ -27,10 +27,10 @@ docker run --rm -v "$(pwd):/workspace" kaba-gitbook "$1"
 
 case $1 in
     serve)
-        docker run --rm -v "$(pwd):/workspace" -it -p 4000:4000 kaba-gitbook "$1"
+        docker run --rm -v "$(pwd):/workspace" -it -p 4000:4000 ryotan/kaba-gitbook "$1"
         ;;
     build)
-        docker run --rm -v "$(pwd):/workspace" kaba-gitbook "$1"
+        docker run --rm -v "$(pwd):/workspace" ryotan/kaba-gitbook "$1"
     ;;
 esac
 ```
