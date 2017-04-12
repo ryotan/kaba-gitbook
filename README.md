@@ -1,6 +1,6 @@
 # Kaba GitBook build environment
 
-GitBook + PlantUML build environment.
+[GitBook](https://www.gitbook.com/) + [PlantUML](http://plantuml.com/) build environment using [gitbook-plugin-uml](https://github.com/vowstar/gitbook-plugin-uml).
 
 ## Getting things up
 
