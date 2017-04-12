@@ -1,5 +1,7 @@
 # Kaba GitBook build environment
 
+GitBook + PlantUML build environment.
+
 ## Getting things up
 
 ### Run GitBook server
