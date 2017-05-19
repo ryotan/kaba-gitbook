@@ -15,7 +15,7 @@ COPY font/local.conf /etc/fonts/
 COPY font/ipag.ttc   /usr/share/fonts/
 ENV FONTCONFIG_VERSION 2.12.1-r0
 ENV GRAPHVIZ_VERSION   2.38.0-r6
-ENV NODE_VERSION       6.9.2-r1
+ENV NODE_VERSION       6.9.5-r0
 RUN apk add --no-cache fontconfig=${FONTCONFIG_VERSION} \
                        graphviz=${GRAPHVIZ_VERSION} \
                        nodejs=${NODE_VERSION} && \
@@ -24,10 +24,11 @@ RUN apk add --no-cache fontconfig=${FONTCONFIG_VERSION} \
 # install gitbook, plantuml
 ENV GITBOOK_VERSION            3.2.2
 ENV GITBOOK_CLI_VERSION        2.3.0
-ENV GITBOOK_PLUGIN_UML_VERSION 0.1.7
-RUN npm install -g gitbook-cli@${GITBOOK_CLI_VERSION} \
-                   gitbook-plugin-uml@${GITBOOK_PLUGIN_UML_VERSION} && \
+RUN npm install -g gitbook-cli@${GITBOOK_CLI_VERSION} && \
     gitbook fetch ${GITBOOK_VERSION}
 
 # copy shell script
 COPY bin/run-gitbook.sh /usr/bin/
+
+# prepare GitBook directory
+RUN mkdir /.gitbook && chmod 777 /.gitbook && mkdir /.npm && chmod 777 /.npm
